@@ -10,43 +10,43 @@
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ```objc
-@interface Alphabets : INMEnumCollection; @end
-@interface Alphabet : INMEnum
+@interface SushiGoRound : INMEnumCollection; @end
+@interface Sushi : INMEnum
 + (Alphabet *)enumObject;
 @end;
-@implementation Alphabet;  @end
-@interface A : Alphabet; @end; @implementation A; @end
-@interface B : Alphabet; @end; @implementation B; @end
-@interface C : Alphabet; @end; @implementation C; @end
+@implementation Sushi;  @end
+@interface Tuna : Sushi; @end; @implementation Tuna; @end
+@interface Egg : Sushi; @end; @implementation Egg; @end
+@interface Shrinp : Sushi; @end; @implementation Shrinp; @end
 
-@implementation Alphabets
+@implementation SushiGoRound
 + (NSArray *) values
 {
     return @[
-        [A defineEnum:0 name:@"a" description:@"えー"],
-        [B defineEnum:1 name:@"b" description:@"びー"],
-        [C defineEnum:2 name:@"c" description:@"しー"],
+        [Tuna defineEnum:0 name:@"tuna" description:@":sushi:"],
+        [Egg defineEnum:1 name:@"egg" description:@":egg:"],
+        [Shrimp defineEnum:2 name:@"shrimp" description:@":fried_shrimp:"],
     ];
 }
 @end
 
 // ....
 
-[INMEnumInitializer initializeAllEnumerateObjects];
-Alphabet *alphabet = [A enumObject];
-alphabet.ordinal; //=> 0
-alphabet.name; //=> @"a"
-alphabet.description; //=> @"えー"
+[INMEnumInitializer initializeAllEnumerateObjects]; // must call at first
+Sushi *sushi = [tuna enumObject];
+sushi.ordinal; //=> 0
+sushi.name; //=> @"tuna"
+sushi.description; //=> @":sushi:"
 
-alphabet = [Alphabets valueForName:@"b"] // => B object;
-[Alphabets values]                       // => A, B and c instances as NSArray;
+sushi = [sushi valueForName:@"egg"] // => Egg object;
+[SushiGoRound values]               // => Tuna, Egg and Shrimp instances as NSArray;
 
 // INMEnum's swtich case syntax
 [INMEnum switch:alphabet
-          cases:[A then:^{ NSLog(@"A"); }],
-                [B then:^{ NSLog(@"B"); }],
-                [C then:^{ NSLog(@"C"); }],
-                [INMEnumCaseDefault then:^{ NSLog(@"B"); }]]; // must to set at last
+          cases:[Tuna then:^{ NSLog(@"awesome!"); }],
+                [Egg then:^{ NSLog(@"yummy!!"); }],
+                [Shrimp then:^{ NSLog(@"delicious!!!"); }],
+                [INMEnumCaseDefault then:^{ NSLog(@"WTF!"); }]]; // must set at last
 ```
 
 ### Constraints
