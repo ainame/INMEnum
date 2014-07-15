@@ -23,6 +23,8 @@
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
+		BD78901A1975A2C000B999B9 /* TestAlphabets.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7890181975A2C000B999B9 /* TestAlphabets.m */; };
+		BD78901B1975A2C000B999B9 /* TestNumbers.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7890191975A2C000B999B9 /* TestNumbers.m */; };
 		ED2B443774F3416186E18142 /* libPods-INMEnum.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE19AC77B32D4FB4ADB7B7D0 /* libPods-INMEnum.a */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +64,13 @@
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		82EB32C03DA04949921130E5 /* INMEnum.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = INMEnum.podspec; path = ../INMEnum.podspec; sourceTree = "<group>"; };
 		AF99D83C06864A8A9A49E49F /* Pods-Tests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.xcconfig"; path = "Pods/Pods-Tests.xcconfig"; sourceTree = "<group>"; };
+		BD7890121975A03400B999B9 /* INMEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INMEnum.h; sourceTree = "<group>"; };
+		BD7890131975A03400B999B9 /* INMEnum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INMEnum.m; sourceTree = "<group>"; };
+		BD7890151975A2C000B999B9 /* TestAlphabets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestAlphabets.h; sourceTree = "<group>"; };
+		BD7890161975A2C000B999B9 /* TestNumbers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestNumbers.h; sourceTree = "<group>"; };
+		BD7890171975A2C000B999B9 /* Tests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
+		BD7890181975A2C000B999B9 /* TestAlphabets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestAlphabets.m; sourceTree = "<group>"; };
+		BD7890191975A2C000B999B9 /* TestNumbers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestNumbers.m; sourceTree = "<group>"; };
 		CE19AC77B32D4FB4ADB7B7D0 /* libPods-INMEnum.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-INMEnum.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDBBD65DDA6848848D6755D0 /* Pods-INMEnum.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-INMEnum.xcconfig"; path = "Pods/Pods-INMEnum.xcconfig"; sourceTree = "<group>"; };
 		F922E28B2110464AB9142B31 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
@@ -96,6 +105,7 @@
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
+				BD7890111975A00D00B999B9 /* Classes */,
 				60FF7A9C1954A5C5007DD14C /* Podspec Metadata */,
 				6003F593195388D20070C39A /* INMEnum */,
 				6003F5B5195388D20070C39A /* Tests */,
@@ -157,6 +167,11 @@
 		6003F5B5195388D20070C39A /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				BD7890151975A2C000B999B9 /* TestAlphabets.h */,
+				BD7890161975A2C000B999B9 /* TestNumbers.h */,
+				BD7890171975A2C000B999B9 /* Tests-Prefix.pch */,
+				BD7890181975A2C000B999B9 /* TestAlphabets.m */,
+				BD7890191975A2C000B999B9 /* TestNumbers.m */,
 				6003F5BB195388D20070C39A /* Tests.m */,
 				6003F5B6195388D20070C39A /* Supporting Files */,
 			);
@@ -181,6 +196,16 @@
 				F922E28B2110464AB9142B31 /* LICENSE */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		BD7890111975A00D00B999B9 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				BD7890121975A03400B999B9 /* INMEnum.h */,
+				BD7890131975A03400B999B9 /* INMEnum.m */,
+			);
+			name = Classes;
+			path = ../Pod/Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -359,6 +384,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD78901B1975A2C000B999B9 /* TestNumbers.m in Sources */,
+				BD78901A1975A2C000B999B9 /* TestAlphabets.m in Sources */,
 				6003F5BC195388D20070C39A /* Tests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
