@@ -42,7 +42,7 @@ sushi = [sushi valueForName:@"egg"] // => Egg object;
 [SushiGoRound values]               // => Tuna, Egg and Shrimp instances as NSArray;
 
 // INMEnum's swtich case syntax
-[INMEnum switch:alphabet
+[INMEnum switch:sushi
           cases:[Tuna then:^{ NSLog(@"awesome!"); }],
                 [Egg then:^{ NSLog(@"yummy!!"); }],
                 [Shrimp then:^{ NSLog(@"delicious!!!"); }],
