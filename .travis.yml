@@ -1,5 +1,9 @@
 reference: http://www.objc.io/issue-6/travis-ci.html
 language: objective-c
-cache: bundler
+before_install:
+  - brew update
+  - brew upgrade xctool
 script:
-- xctool test -workspace Example/INMEnum.xcworkspace -scheme INMEnum -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+  - gem install cocoapods --no-doc --no-ri
+  - cd Example; pod install; cd ../;
+  - xctool test -workspace Example/INMEnum.xcworkspace -scheme INMEnum -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
