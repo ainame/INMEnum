@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "INMEnum"
-  s.version          = "0.1.0"
+  s.version          = "0.1.1"
   s.summary          = "INMEnum provide defining method to create a enum object as a plain old objc object."
   s.description      = <<-DESC
                        INMEnum provide defining method to create a enum object as a plain old objc object.
