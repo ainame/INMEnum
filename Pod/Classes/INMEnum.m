@@ -78,6 +78,7 @@ static NSMutableDictionary *globalEnumerateObjectStore;
     for (INMEnumCaseThen *eachCase in cases) {
         if ([eachCase testWithTestObject:testObject] && ![eachCase isDefaultCase]) {
             eachCase.thenBlock();
+            eachCase.thenBlock = nil;
             return;
         }
         eachCase.thenBlock = nil;
