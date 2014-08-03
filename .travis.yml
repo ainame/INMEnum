@@ -1,8 +1,8 @@
 reference: http://www.objc.io/issue-6/travis-ci.html
 language: objective-c
-before_install:
-  - brew update
-  - brew upgrade xctool
+# before_install:
+#   - brew update
+#   - brew upgrade xctool
 script:
   - gem install cocoapods --no-doc --no-ri
   - cd Example; pod install; cd ../;
