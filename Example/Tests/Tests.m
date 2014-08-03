@@ -52,7 +52,7 @@ describe(@"swtich enumerate objects", ^{
         __block BOOL isNumberOf1 = NO;
         __block BOOL isNumberOf2 = NO;
         __block BOOL isDefault = NO;
-        [INMEnum switch:[TestNumberOf1 enumObject]
+        [TestAlphabets switch:[TestNumberOf1 enumObject]
                   cases:[TestNumberOf1 then:^{ isNumberOf1 = YES; }], [TestNumberOf2 then:^{ isNumberOf2 = YES; }],
                         [TestNumberOf3 then:^{}], [INMEnumCaseDefault then:^{ isDefault = YES; }]];
 
@@ -65,7 +65,7 @@ describe(@"swtich enumerate objects", ^{
         __block BOOL isNumberOf1 = NO;
         __block BOOL isNumberOf2 = NO;
         __block BOOL isDefault = NO;
-        [INMEnum switch:[TestNumberOf2 enumObject]
+        [TestAlphabets switch:[TestNumberOf2 enumObject]
                   cases:[TestNumberOf1 then:^{ isNumberOf1 = YES; }], [TestNumberOf2 then:^{ isNumberOf2 = YES; }],
                         [TestNumberOf3 then:^{}], [INMEnumCaseDefault then:^{ isDefault = YES; }]];
         expect(isNumberOf1).to.equal(NO);
@@ -77,7 +77,7 @@ describe(@"swtich enumerate objects", ^{
         __block BOOL isNumberOf1 = NO;
         __block BOOL isNumberOf2 = NO;
         __block BOOL isDefault = NO;
-        [INMEnum switch:nil
+        [TestAlphabets switch:nil
                   cases:[TestNumberOf1 then:^{ isNumberOf1 = YES; }], [TestNumberOf2 then:^{ isNumberOf2 = YES; }],
                         [TestNumberOf3 then:^{}], [INMEnumCaseDefault then:^{ isDefault = YES; }]];
         expect(isNumberOf1).to.equal(NO);
@@ -89,7 +89,7 @@ describe(@"swtich enumerate objects", ^{
         __block BOOL isNumberOf1 = NO;
         __block BOOL isNumberOf2 = NO;
         __block BOOL isDefault = NO;
-        [INMEnum switch:[TestNumberOf2 enumObject]
+        [TestAlphabets switch:[TestNumberOf2 enumObject]
                   cases:[TestNumberOf1 then:^{ isNumberOf1 = YES; }], [INMEnumCaseDefault then:^{ isDefault = YES; }],
                         [TestNumberOf2 then:^{ isNumberOf2 = YES; }], [TestNumberOf3 then:^{}]];
         expect(isNumberOf1).to.equal(NO);
@@ -101,7 +101,7 @@ describe(@"swtich enumerate objects", ^{
         __block BOOL isNumberOf1 = NO;
         __block BOOL isNumberOf2 = NO;
         __block BOOL isDefault = NO;
-        [INMEnum switch:[TestNumberOf2 enumObject] cases:[INMEnumCaseDefault then:^{ isDefault = YES; }]];
+        [TestAlphabets switch:[TestNumberOf2 enumObject] cases:[INMEnumCaseDefault then:^{ isDefault = YES; }]];
         expect(isNumberOf1).to.equal(NO);
         expect(isNumberOf2).to.equal(NO);
         expect(isDefault).to.equal(YES);

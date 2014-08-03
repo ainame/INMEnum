@@ -63,8 +63,6 @@
  */
 + (instancetype)defineEnum:(NSUInteger)ordinal name:(NSString *)name description:(NSString *)description;
 
-+ (void) switch:(INMEnum *)testEnumObject cases:(INMEnumCaseThen *)caseThen, ...;
-
 + (INMEnumCaseThen *)then:(void (^)(void))thenBlock;
 
 /**
@@ -120,6 +118,8 @@
  * @return instance for name
  */
 + (id)valueForName:(NSString *)name;
+
++ (void) switch:(INMEnum *)testEnumObject cases:(INMEnumCaseThen *)caseThen, ...;
 
 @end
 

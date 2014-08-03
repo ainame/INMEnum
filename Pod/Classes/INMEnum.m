@@ -52,46 +52,6 @@ static NSMutableDictionary *globalEnumerateObjectStore;
     return [[INMEnumCaseThen alloc] initWithCaseCondition:[self enumObject] thenBlock:thenBlock];
 }
 
-+ (void) switch:(INMEnum *)testEnumObject cases:(INMEnumCaseThen *)firstCaseThen, ...
-{
-    va_list args;
-    va_start(args, firstCaseThen);
-    NSMutableArray *cases = [@[] mutableCopy];
-    INMEnumCaseThen *caseThen = firstCaseThen;
-    while (caseThen) {
-        [cases addObject:caseThen];
-        if ([caseThen isDefaultCase]) {
-            break;
-        }
-        caseThen = va_arg(args, typeof(INMEnumCaseThen *));
-    }
-    va_end(args);
-
-    INMEnumCaseThen *lastCase = [cases lastObject];
-    [cases removeLastObject];
-
-    [self _switch:testEnumObject cases:cases lastCase:lastCase];
-}
-
-+ (void)_switch:(INMEnum *)testObject cases:(NSMutableArray *)cases lastCase:(INMEnumCaseThen *)lastCase
-{
-    for (INMEnumCaseThen *eachCase in cases) {
-        if ([eachCase testWithTestObject:testObject] && ![eachCase isDefaultCase]) {
-            eachCase.thenBlock();
-            eachCase.thenBlock = nil;
-            return;
-        }
-        eachCase.thenBlock = nil;
-    }
-
-    if ([lastCase isDefaultCase]) {
-        lastCase.thenBlock();
-    } else if ([lastCase testWithTestObject:testObject]) {
-        lastCase.thenBlock();
-    }
-    lastCase.thenBlock = nil;
-}
-
 - (instancetype)initWithOrdinal:(NSUInteger)ordinal name:(NSString *)name description:(NSString *)description
 {
     self = [super init];
@@ -180,6 +140,46 @@ static NSMutableDictionary *globalEnumerateObjectStore;
         }
     }
     return nil;
+}
+
++ (void) switch:(INMEnum *)testEnumObject cases:(INMEnumCaseThen *)firstCaseThen, ...
+{
+    va_list args;
+    va_start(args, firstCaseThen);
+    NSMutableArray *cases = [@[] mutableCopy];
+    INMEnumCaseThen *caseThen = firstCaseThen;
+    while (caseThen) {
+        [cases addObject:caseThen];
+        if ([caseThen isDefaultCase]) {
+            break;
+        }
+        caseThen = va_arg(args, typeof(INMEnumCaseThen *));
+    }
+    va_end(args);
+
+    INMEnumCaseThen *lastCase = [cases lastObject];
+    [cases removeLastObject];
+
+    [self _switch:testEnumObject cases:cases lastCase:lastCase];
+}
+
++ (void)_switch:(INMEnum *)testObject cases:(NSMutableArray *)cases lastCase:(INMEnumCaseThen *)lastCase
+{
+    for (INMEnumCaseThen *eachCase in cases) {
+        if ([eachCase testWithTestObject:testObject] && ![eachCase isDefaultCase]) {
+            eachCase.thenBlock();
+            eachCase.thenBlock = nil;
+            return;
+        }
+        eachCase.thenBlock = nil;
+    }
+
+    if ([lastCase isDefaultCase]) {
+        lastCase.thenBlock();
+    } else if ([lastCase testWithTestObject:testObject]) {
+        lastCase.thenBlock();
+    }
+    lastCase.thenBlock = nil;
 }
 
 @end
