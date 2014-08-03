@@ -11,9 +11,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ```objc
 @interface SushiGoRound : INMEnumCollection; @end
-@interface Sushi : INMEnum
-+ (Alphabet *)enumObject;
-@end;
+@interface Sushi : INMEnum; @end;
 @implementation Sushi;  @end
 @interface Tuna : Sushi; @end; @implementation Tuna; @end
 @interface Egg : Sushi; @end; @implementation Egg; @end
