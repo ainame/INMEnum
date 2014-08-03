@@ -17,7 +17,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 @implementation Sushi;  @end
 @interface Tuna : Sushi; @end; @implementation Tuna; @end
 @interface Egg : Sushi; @end; @implementation Egg; @end
-@interface Shrinp : Sushi; @end; @implementation Shrinp; @end
+@interface Shrimp : Sushi; @end; @implementation Shrimp; @end
 
 @implementation SushiGoRound
 + (NSArray *) values
@@ -42,11 +42,11 @@ sushi = [sushi valueForName:@"egg"] // => Egg object;
 [SushiGoRound values]               // => Tuna, Egg and Shrimp instances as NSArray;
 
 // INMEnum's swtich case syntax
-[INMEnum switch:sushi
-          cases:[Tuna then:^{ NSLog(@"awesome!"); }],
-                [Egg then:^{ NSLog(@"yummy!!"); }],
-                [Shrimp then:^{ NSLog(@"delicious!!!"); }],
-                [INMEnumCaseDefault then:^{ NSLog(@"WTF!"); }]]; // must set at last
+[SushiGoRound switch:sushi
+               cases:[Tuna then:^{ NSLog(@"awesome!"); }],
+                     [Egg then:^{ NSLog(@"yummy!!"); }],
+                     [Shrimp then:^{ NSLog(@"delicious!!!"); }],
+                     [INMEnumCaseDefault then:^{ NSLog(@"WTF!"); }]]; // must set at last
 ```
 
 ### Constraints
