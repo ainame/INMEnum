@@ -117,12 +117,17 @@ static NSMutableDictionary *globalEnumerateObjectStore;
 
 @end
 
+static NSMutableDictionary *globalCollectionMappings;
+
 @implementation INMEnumCollection
 
 + (void)initialize
 {
     if (self == [self class]) {
-        [self values];
+        NSMutableDictionary *mapping = globalCollectionMappings[NSStringFromClass(self)] = [@{} mutableCopy];
+        [[self values] enumerateObjectsUsingBlock:^(INMEnum *enumObject, NSUInteger idx, BOOL *stop) {
+          mapping[enumObject.name] = enumObject;
+        }];
     }
 }
 
@@ -133,13 +138,8 @@ static NSMutableDictionary *globalEnumerateObjectStore;
 
 + (INMEnum *)valueForName:(NSString *)name
 {
-    NSArray *values = [self values];
-    for (INMEnum *value in values) {
-        if ([value.name isEqualToString:name]) {
-            return value;
-        }
-    }
-    return nil;
+    NSMutableDictionary *mapping = globalCollectionMappings[NSStringFromClass(self)];
+    return mapping[name];
 }
 
 + (void) switch:(INMEnum *)testEnumObject cases:(INMEnumCaseThen *)firstCaseThen, ...
@@ -190,20 +190,21 @@ static NSMutableDictionary *globalEnumerateObjectStore;
 {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        globalEnumerateObjectStore = [NSMutableDictionary dictionary];
-        int count = objc_getClassList(NULL, 0);
-        Class classes[count];
+      globalEnumerateObjectStore = [@{} mutableCopy];
+      globalCollectionMappings = [@{} mutableCopy];
+      int count = objc_getClassList(NULL, 0);
+      Class classes[count];
 
-        if (count <= 0) {
-            return;
-        }
-        objc_getClassList(classes, count);
-        for (int i = 0; i < count; i++) {
-            Class clazz = classes[i];
-            if (class_getSuperclass(clazz) == INMEnumCollection.class) {
-                [clazz initialize];
-            }
-        }
+      if (count <= 0) {
+          return;
+      }
+      objc_getClassList(classes, count);
+      for (int i = 0; i < count; i++) {
+          Class clazz = classes[i];
+          if (class_getSuperclass(clazz) == INMEnumCollection.class) {
+              [clazz initialize];
+          }
+      }
     });
 }
 
