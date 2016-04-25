@@ -244,6 +244,7 @@ fi
 				<string>6003F587195388D20070C39A</string>
 				<string>6003F588195388D20070C39A</string>
 				<string>B466C5DD040F420DA71275B7</string>
+				<string>919A9D529A0B0D9AF874B624</string>
 			</array>
 			<key>buildRules</key>
 			<array/>
@@ -671,6 +672,7 @@ fi
 				<string>6003F5AB195388D20070C39A</string>
 				<string>6003F5AC195388D20070C39A</string>
 				<string>606087C6594C4553AAF7353D</string>
+				<string>764CE3A31F532EEBA1BB24E4</string>
 			</array>
 			<key>buildRules</key>
 			<array/>
@@ -1190,6 +1192,30 @@ fi
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>764CE3A31F532EEBA1BB24E4</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Embed Pods Frameworks</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-Tests/Pods-Tests-frameworks.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
 		<key>80F45CED9E84B13BF6827D5C</key>
 		<dict>
 			<key>children</key>
@@ -1220,6 +1246,30 @@ fi
 			<string>../INMEnum.podspec</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
+		</dict>
+		<key>919A9D529A0B0D9AF874B624</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Embed Pods Frameworks</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-INMEnum/Pods-INMEnum-frameworks.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
 		</dict>
 		<key>B466C5DD040F420DA71275B7</key>
 		<dict>
