@@ -22,7 +22,7 @@
 /**
  * retrive enum object as a singleton instance.
  */
-+ (instancetype)enumObject;
++ (nonnull instancetype)enumObject;
 
 /**
  * define enum object in `[INMEnumCollection values]`
@@ -33,7 +33,7 @@
  * @param ordinal ordinal value to set property
  * @return self instance
  */
-+ (instancetype)defineEnum:(NSUInteger)ordinal;
++ (nonnull instancetype)defineEnum:(NSUInteger)ordinal;
 
 /**
  * define enum object in `[INMEnumCollection values]`
@@ -46,7 +46,7 @@
  * @param name name value to set property
  * @return self instance
  */
-+ (instancetype)defineEnum:(NSUInteger)ordinal name:(NSString *)name;
++ (nonnull instancetype)defineEnum:(NSUInteger)ordinal name:(nullable NSString *)name;
 
 /**
  * define enum object in `[INMEnumCollection values]`
@@ -61,9 +61,9 @@
  * @param description underlying string value to get description method
  * @return self instance
  */
-+ (instancetype)defineEnum:(NSUInteger)ordinal name:(NSString *)name description:(NSString *)description;
++ (nonnull instancetype)defineEnum:(NSUInteger)ordinal name:(nullable NSString *)name description:(nullable NSString *)description;
 
-+ (INMEnumCaseThen *)then:(void (^)(void))thenBlock;
++ (nonnull INMEnumCaseThen *)then:(nonnull void (^)(void))thenBlock;
 
 /**
  * ordinal value of enum object
@@ -74,7 +74,7 @@
  * ordinal value of enum object.
  * if you don't given this initializer, will return the string of class name.
  */
-@property (nonatomic, strong, readonly) NSString *name;
+@property (nullable, nonatomic, strong, readonly) NSString *name;
 
 @end
 
@@ -83,13 +83,13 @@
  */
 @interface INMEnumCaseThen : NSObject
 
-@property (nonatomic, weak) INMEnum *caseCondition;
+@property (nullable, nonatomic, weak) INMEnum *caseCondition;
 
-@property (nonatomic, copy) void (^thenBlock)(void);
+@property (nullable, nonatomic, copy) void (^thenBlock)(void);
 
-- (instancetype)initWithCaseCondition:(INMEnum *)caseCondition thenBlock:(void (^)(void))thenBlock;
+- (nonnull instancetype)initWithCaseCondition:(nullable INMEnum *)caseCondition thenBlock:(nonnull void (^)(void))thenBlock;
 
-- (BOOL)testWithTestObject:(INMEnum *)testObject;
+- (BOOL)testWithTestObject:(nullable INMEnum *)testObject;
 
 - (BOOL)isDefaultCase;
 
@@ -97,7 +97,7 @@
 
 @interface INMEnumCaseDefault : INMEnumCaseThen
 
-+ (instancetype)then:(void (^)(void))thenBlock;
++ (nonnull instancetype)then:(nonnull void (^)(void))thenBlock;
 
 @end
 
@@ -110,16 +110,16 @@
 /**
  * You must orverride to define your enumeration values.
  */
-+ (NSArray *)values;
++ (nonnull NSArray *)values;
 
 /**
  * retrive a enumerated object for name
  * @param name key for enumerate object which included this collection.
  * @return instance for name
  */
-+ (id)valueForName:(NSString *)name;
++ (nullable id)valueForName:(nonnull NSString *)name;
 
-+ (void) switch:(INMEnum *)testEnumObject cases:(INMEnumCaseThen *)caseThen, ...;
++ (void) switch:(nonnull INMEnum *)testEnumObject cases:(nonnull INMEnumCaseThen *)caseThen, ...;
 
 @end
 
